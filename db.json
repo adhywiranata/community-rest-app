@@ -1,0 +1,17 @@
+{
+  "communities": [
+    { "id": 1, "owner": 1, "title": "Programming Community" },
+    { "id": 1, "owner": 1, "title": "Swimming Community" },
+    { "id": 1, "owner": 1, "title": "Cooking Community" }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John"
+    },
+    {
+      "id": 1,
+      "name": "John"
+    }
+  ]
+}
