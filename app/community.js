@@ -1,74 +1,7 @@
-import { createCommunity } from "../services/createCommunity";
-import { getAllCommunities } from "../services/getCommunities";
+import { applyFilterFunctionality } from "./filterCommunity";
+import { applyPopupFormFunctionality } from "./handlePopupForm";
 
-// generate card component / template
-const communityCardComponent = (communityData) => {
-  return `
-    <div class="card">
-      <h2>${communityData.title}</h2>
-      <p>${communityData.message}</p>
-    </div>
-  `;
-};
-
-const renderCommunityList = async (keyword) => {
-  const data = await getAllCommunities(keyword);
-
-  const communityCardList = data.map((community) =>
-    communityCardComponent(community)
-  );
-
-  const cardListWrapper = document.querySelector("#community-list");
-
-  cardListWrapper.innerHTML = communityCardList.join("");
-};
-
-const applyFilterFunctionality = () => {
-  // apply functionalities for filter
-  const filterInput = document.querySelector("#filter-community");
-  const filterButton = document.querySelector("#submit-filter");
-  const clearFilterButton = document.querySelector("#clear-filter");
-
-  filterButton.addEventListener("click", () => {
-    const filterValue = filterInput.value;
-
-    renderCommunityList(filterValue);
-  });
-
-  clearFilterButton.addEventListener("click", () => {
-    renderCommunityList("");
-  });
-};
-
-const applyPopupFormFunctionality = () => {
-  // OPEN-CLOSE Popup Functionality
-  const openPopupButton = document.querySelector("#create-community");
-  const closePopupButton = document.querySelector("#close-popup");
-
-  openPopupButton.addEventListener("click", () => {
-    const popup = document.querySelector("#community-popup-form");
-
-    popup.style.display = "block";
-  });
-
-  closePopupButton.addEventListener("click", () => {
-    const popup = document.querySelector("#community-popup-form");
-
-    popup.style.display = "none";
-  });
-
-  // Form submissions Functionality
-  const saveCommunityButton = document.querySelector("#save-community-button");
-
-  saveCommunityButton.addEventListener("click", (e) => {
-    e.preventDefault(); // to prevent form to reload somewhere
-
-    const title = document.querySelector("#input-community-title").value;
-    const message = document.querySelector("#input-community-message").value;
-
-    createCommunity({ title, message });
-  });
-};
+import { renderCommunityList } from "./renderCommunityList";
 
 // runner / business function
 const renderCommunityApp = async () => {
@@ -82,8 +15,9 @@ const renderCommunityApp = async () => {
     <div id="community-list"></div>
     <div id="community-popup-form">
       <button id="close-popup">close</button>
-      <h3>Create New Community</h3>
       <form>
+        <input type="hidden" id="save-community-type" />
+        <input type="hidden" id="input-community-id" />
         <label>
           <span>Community Name</span>
           <input id="input-community-title" type="text">

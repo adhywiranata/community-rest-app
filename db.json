@@ -1,24 +1,19 @@
 {
   "communities": [
     {
-      "id": 1,
-      "title": "Programming Community",
-      "message": "lorem ipsum"
+      "title": "123",
+      "message": "456",
+      "id": 3
     },
     {
-      "id": 2,
-      "title": "Swimming Community",
-      "message": "lorem ipsum"
+      "title": "Makan Cuy",
+      "message": "let's eat",
+      "id": 5
     },
     {
-      "id": 3,
-      "title": "Cooking Community",
-      "message": "lorem ipsum"
-    },
-    {
-      "title": "Eating",
-      "message": "yuk makan",
-      "id": 4
+      "title": "test",
+      "message": "test",
+      "id": 6
     }
   ]
 }
