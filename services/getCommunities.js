@@ -1,9 +1,10 @@
 import axios from "axios";
+import { API_ENDPOINT } from "../lib/constants";
 
 export const getAllCommunities = async (keyword) => {
   try {
     const response = await axios.get(
-      `http://localhost:3000/communities?q=${keyword}`
+      `${API_ENDPOINT}/communities?q=${keyword}`
     );
 
     return response.data;
