@@ -1,17 +1,24 @@
 {
   "communities": [
-    { "id": 1, "owner": 1, "title": "Programming Community" },
-    { "id": 1, "owner": 1, "title": "Swimming Community" },
-    { "id": 1, "owner": 1, "title": "Cooking Community" }
-  ],
-  "users": [
     {
       "id": 1,
-      "name": "John"
+      "title": "Programming Community",
+      "message": "lorem ipsum"
     },
     {
-      "id": 1,
-      "name": "John"
+      "id": 2,
+      "title": "Swimming Community",
+      "message": "lorem ipsum"
+    },
+    {
+      "id": 3,
+      "title": "Cooking Community",
+      "message": "lorem ipsum"
+    },
+    {
+      "title": "Eating",
+      "message": "yuk makan",
+      "id": 4
     }
   ]
 }
